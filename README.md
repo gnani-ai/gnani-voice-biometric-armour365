@@ -42,7 +42,7 @@ Gnani Voice Biometric Android SDK
 that's it for creating a client.
 
 	UID(String) -> a unique identifier for the user(can be phone number, email id or anything)
-	file -> audio file
+	file(File) -> audio file
 
 
 * Enrollment
