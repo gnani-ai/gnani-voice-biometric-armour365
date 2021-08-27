@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), VoiceResultListener {
         btnEnroll = findViewById(R.id.btnEnroll)
         btnDisEnroll = findViewById(R.id.btnDisEnroll)
 
-        gnaniClient = GnaniClient("", "", "", this)
+        gnaniClient = GnaniClient("TOKEN", "ACCESSKEY", "PROCUCT", this)
 
         btnAuth.setOnClickListener {
             MODE = 1
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), VoiceResultListener {
             recordAudio()
         }
         btnDisEnroll.setOnClickListener {
-            gnaniClient.disEnrollUser("")
+            gnaniClient.disEnrollUser("UID")
         }
 
     }
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity(), VoiceResultListener {
 
                     Log.d(TAG, "onActivityResult: ${file.absolutePath}")
 
-                    gnaniClient.authenticateUser("", file)
+                    gnaniClient.authenticateUser("UID", file)
                 }
                 if(MODE == 2){
 
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), VoiceResultListener {
 
                     Log.d(TAG, "onActivityResult: ${file.absolutePath}")
 
-                    gnaniClient.enrollUser("", file)
+                    gnaniClient.enrollUser("UID", file)
                 }
             }
         }
